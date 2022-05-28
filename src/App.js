@@ -9,6 +9,7 @@ import Stage from './/pages/Stage';
 import Others from './/pages/Others';
 import SignUp from './/pages/SignUp';
 import Footer from './components/Footer';
+import SignIn from './pages/SignIn';
 
 function App() {
     return (
@@ -22,6 +23,7 @@ function App() {
                     <Route path='/stage' element={<Stage />} />
                     <Route path='/others' element={<Others />} />
                     <Route path='/sign-up' element={<SignUp />} />
+                    <Route path='/sign-in' element={<SignIn />} />
                 </Routes>
                 <Footer/>
             </Router>

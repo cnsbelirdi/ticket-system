@@ -5,7 +5,7 @@ import { Button } from '../components/Button'
 
 export default function SignUp() {
   return (
-    <div className="page-wrapper p-t-80 font-poppins">
+    <div className="page-wrapper p-t-80 min-height-103">
         <div className="wrapper wrapper--w780">
             <div className="card card-4">
                 <div className="card-body">
@@ -14,50 +14,50 @@ export default function SignUp() {
                         <div className="row row-space">
                             <div className="col-2">
                                 <div className="input-group">
-                                    <label className="label">first name</label>
-                                    <input className="input--style-4" type="text" name="first_name"/>
+                                    <label className="label" for="first_name">first name</label>
+                                    <input className="input-style-1" type="text" name="first_name"/>
                                 </div>
                             </div>
                             <div className="col-2">
                                 <div className="input-group">
-                                    <label className="label">last name</label>
-                                    <input className="input--style-4" type="text" name="last_name"/>
+                                    <label className="label" for="last_name">last name</label>
+                                    <input className="input-style-1" type="text" name="last_name"/>
                                 </div>
                             </div>
                         </div>
                         <div className="row row-space">
                             <div className="col-2">
                               <div className="input-group">
-                                    <label className="label">Email</label>
-                                    <input className="input--style-4" type="email" name="email"/>
+                                    <label className="label" for="email">Email</label>
+                                    <input className="input-style-1" type="email" name="email"/>
                                 </div>
                             </div>
                             <div className="col-2">
                               <div className="input-group">
-                                    <label className="label">Phone Number</label>
-                                    <input className="input--style-4" type="text" name="phone"/>
+                                    <label className="label" for="phone">Phone Number</label>
+                                    <input className="input-style-1" type="text" name="phone"/>
                                 </div>
                             </div>
                         </div>
                         <div className="row row-space">
                             <div className="col">
                               <div className="input-group">
-                                <label className="label">address</label>
-                                <textarea className="input--style-4 textarea" name="address"></textarea>
+                                <label className="label" for="address">address</label>
+                                <textarea className="input-style-1 textarea" name="address"></textarea>
                               </div>
                             </div>
                         </div>
                         <div className="row row-space">
                             <div className="col-2">
                                 <div className="input-group">
-                                    <label className="label">password</label>
-                                    <input className="input--style-4" type="password" name="password"/>
+                                    <label className="label" name="password">password</label>
+                                    <input className="input-style-1" type="password" name="password"/>
                                 </div>
                             </div>
                             <div className="col-2">
                                 <div className="input-group">
                                     <label className="label">confirm password</label>
-                                    <input className="input--style-4" type="password" name="confirm_password"/>
+                                    <input className="input-style-1" type="password" name="confirm_password"/>
                                 </div>
                             </div>
                         </div>
