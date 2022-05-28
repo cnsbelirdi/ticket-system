@@ -8,6 +8,7 @@ import Cinema from './components/pages/Cinema';
 import Stage from './components/pages/Stage';
 import Others from './components/pages/Others';
 import SignUp from './components/pages/SignUp';
+import Footer from './components/Footer';
 
 function App() {
     return (
@@ -22,6 +23,7 @@ function App() {
                     <Route path='/others' element={<Others />} />
                     <Route path='/sign-up' element={<SignUp />} />
                 </Routes>
+                <Footer/>
             </Router>
         </>
     );
