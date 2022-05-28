@@ -18,6 +18,11 @@
     max-width: 1500px;
 }
 
+.navbar-container button {
+    width: 100%;
+    margin: 0px 10px 0px 10px;
+}
+
 .navbar-logo {
     color: #EA1E63;
     justify-self: start;
@@ -36,7 +41,7 @@
 
 .nav-menu {
     display: grid;
-    grid-template-columns: repeat(5, auto);
+    grid-template-columns: repeat(6, auto);
     grid-gap: 10px;
     list-style: none;
     text-align: center;

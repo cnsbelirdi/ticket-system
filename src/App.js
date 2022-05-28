@@ -1,13 +1,13 @@
 import React from 'react';
 import Navbar from './components/Navbar';
 import './App.css';
-import Home from './components/pages/Home';
+import Home from './/pages/Home';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Music from './components/pages/Music';
-import Cinema from './components/pages/Cinema';
-import Stage from './components/pages/Stage';
-import Others from './components/pages/Others';
-import SignUp from './components/pages/SignUp';
+import Music from './/pages/Music';
+import Cinema from './/pages/Cinema';
+import Stage from './/pages/Stage';
+import Others from './/pages/Others';
+import SignUp from './/pages/SignUp';
 import Footer from './components/Footer';
 
 function App() {

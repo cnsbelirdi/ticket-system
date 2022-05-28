@@ -1,6 +1,7 @@
 import React from 'react';
-import '../../App.css';
+import '../App.css';
 import './SignUp.css';
+import { Button } from '../components/Button'
 
 export default function SignUp() {
   return (
@@ -74,7 +75,13 @@ export default function SignUp() {
                             </div>
                         </div>
                         <div className="p-t-15">
-                            <button className="btn btn-signup" type="submit">Sign up</button>
+                            <Button className='btns'
+                                    buttonStyle='btn--primary'
+                                    buttonSize='btn--large'
+                                    type="submit"
+                            >
+                                SIGN UP
+                            </Button>
                         </div>
                     </form>
                 </div>
