@@ -11,6 +11,7 @@ import SignUp from './/pages/SignUp';
 import Footer from './components/Footer';
 import SignIn from './pages/SignIn';
 import Admin from './pages/admin/Admin';
+import AddEvent from './pages/admin/AddEvent';
 
 function App() {
     return (
@@ -26,6 +27,7 @@ function App() {
                     <Route path='/sign-up' element={<SignUp />} />
                     <Route path='/sign-in' element={<SignIn />} />
                     <Route path='/admin' element={<Admin />} />
+                    <Route path='/admin/add-event' element={<AddEvent />} />
                 </Routes>
                 <Footer/>
             </Router>
