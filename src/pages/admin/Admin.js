@@ -1,11 +1,10 @@
 import React from 'react';
 import './Admin.css';
-import 'bootstrap/dist/css/bootstrap.min.css';
 
 export default function Admin() {
     return (
-        <div className="admin-wrapper">
-            <h2>Welcome Admin!</h2>
+        <div className="container"style={{height:100}}>
+            <h2>WELCOME ADMIN!</h2>
         </div>
     )
 }
