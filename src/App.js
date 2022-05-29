@@ -10,6 +10,7 @@ import Others from './/pages/Others';
 import SignUp from './/pages/SignUp';
 import Footer from './components/Footer';
 import SignIn from './pages/SignIn';
+import Admin from './pages/admin/Admin';
 
 function App() {
     return (
@@ -24,6 +25,7 @@ function App() {
                     <Route path='/others' element={<Others />} />
                     <Route path='/sign-up' element={<SignUp />} />
                     <Route path='/sign-in' element={<SignIn />} />
+                    <Route path='/admin' element={<Admin />} />
                 </Routes>
                 <Footer/>
             </Router>

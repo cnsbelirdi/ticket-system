@@ -1,5 +1,4 @@
 import React from 'react';
-import '../App.css';
 import './SignUp.css';
 import { Button } from '../components/Button'
 import { Link } from 'react-router-dom';
