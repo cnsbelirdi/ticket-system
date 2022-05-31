@@ -37,14 +37,14 @@ function Navbar() {
                     </div>
                     <ul className={click ? 'nav-menu active' : 'nav-menu'}>
                         <li className='nav-item'>
-                            <Link to='/' className='nav-links' onClick={closeMobileMenu}>
+                            <Link to='/' className='nav-links text-decoration-none' onClick={closeMobileMenu}>
                                 Home
                             </Link>
                         </li>
                         <li className='nav-item'>
                             <Link
                                 to='/music'
-                                className='nav-links'
+                                className='nav-links text-decoration-none'
                                 onClick={closeMobileMenu}
                             >
                                 Music
@@ -53,7 +53,7 @@ function Navbar() {
                         <li className='nav-item'>
                             <Link
                                 to='/cinema'
-                                className='nav-links'
+                                className='nav-links text-decoration-none'
                                 onClick={closeMobileMenu}
                             >
                                 Cinema
@@ -62,7 +62,7 @@ function Navbar() {
                         <li className='nav-item'>
                             <Link
                                 to='/stage'
-                                className='nav-links'
+                                className='nav-links text-decoration-none'
                                 onClick={closeMobileMenu}
                             >
                                 Stage
@@ -71,7 +71,7 @@ function Navbar() {
                         <li className='nav-item'>
                             <Link
                                 to='/others'
-                                className='nav-links'
+                                className='nav-links text-decoration-none'
                                 onClick={closeMobileMenu}
                             >
                                 Others
@@ -81,7 +81,7 @@ function Navbar() {
                         <li>
                             <Link
                                 to='/sign-up'
-                                className='nav-links-mobile'
+                                className='nav-links-mobile text-decoration-none'
                                 onClick={closeMobileMenu}
                             >
                                 Sign Up
@@ -90,7 +90,7 @@ function Navbar() {
                         <li>
                             <Link
                                 to='/sign-in'
-                                className='nav-links-mobile'
+                                className='nav-links-mobile text-decoration-none'
                                 onClick={closeMobileMenu}
                             >
                                 Sign In
