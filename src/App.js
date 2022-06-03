@@ -12,6 +12,7 @@ import Footer from './components/Footer';
 import SignIn from './pages/SignIn';
 import Admin from './pages/admin/Admin';
 import AddEvent from './pages/admin/AddEvent';
+import ShowEvent from './pages/admin/ShowEvent';
 
 function App() {
     return (
@@ -28,6 +29,7 @@ function App() {
                     <Route path='/sign-in' element={<SignIn />} />
                     <Route path='/admin' element={<Admin />} />
                     <Route path='/admin/add-event' element={<AddEvent />} />
+                    <Route path='/admin/show-event' element={<ShowEvent />} />
                 </Routes>
                 <Footer/>
             </Router>

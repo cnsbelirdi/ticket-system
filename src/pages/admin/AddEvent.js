@@ -2,6 +2,7 @@ import React, { useState } from "react";
 
 export default function AddEvent(){
     const event_types = ["Music", "Cinema","Theater"];
+    const cities = ["ISTANBUL", "ANKARA", "IZMIR", "ANTALYA", "SAMSUN"];
     const [type ="default", setType] = useState();
     return(
         <div className="bg-admin-grey min-height-65">
@@ -45,11 +46,12 @@ export default function AddEvent(){
                                     <div className="form-group">
                                         <label htmlFor="event-city">City</label>
                                         <select className="form-control" id="event-city" name="event-city" required>
-                                            <option>ISTANBUL</option>
-                                            <option>ANKARA</option>
-                                            <option>IZMIR</option>
-                                            <option>ANTALYA</option>
-                                            <option>MUGLA</option>
+                                            <option value="default">Select..</option>
+                                            {cities.map(city => {
+                                                return (
+                                                    <option value={city}>{city}</option>
+                                                );
+                                            })}
                                         </select>
                                     </div>
                                 </div>
@@ -116,11 +118,12 @@ export default function AddEvent(){
                                     <div className="form-group">
                                         <label htmlFor="event-city">City</label>
                                         <select className="form-control" id="event-city" name="event-city" required>
-                                            <option>ISTANBUL</option>
-                                            <option>ANKARA</option>
-                                            <option>IZMIR</option>
-                                            <option>ANTALYA</option>
-                                            <option>MUGLA</option>
+                                            <option value="default">Select..</option>
+                                            {cities.map(city => {
+                                                return (
+                                                    <option value={city}>{city}</option>
+                                                );
+                                            })}
                                         </select>
                                     </div>
                                 </div>

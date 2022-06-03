@@ -1,11 +1,12 @@
 import React from 'react';
 
-export default function Event(){
+export default function Event(props){
+    const page = props.page;
     return(
         <div className="card mb-4 radius-10" style={{maxWidth:800}}>
             <div className="row no-gutters">
                 <div className="col-3">
-                    <img src="images/deep-purple.jpg" alt="Deep Purple" className="event-img"/>
+                    <img src="/images/deep-purple.jpg" alt="Deep Purple" className="event-img"/>
                 </div>
                 <div className="col-3 pl-2">
                     <div className="card-body border-right-dashed mt-2 mb-2">
@@ -33,6 +34,11 @@ export default function Event(){
                 <div className="col-3">
                     <div className="card-body">
                         <button type="button" class="btn bg-orange mt-5 radius-10">Show Details</button>
+                        {
+                            page !== "Main" ? 
+                            <button type="button" class="btn btn-cancel mt-2 ml-4 radius-10">Cancel</button>:""
+                        }
+                        
                     </div>
                 </div>
             </div>

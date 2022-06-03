@@ -29,3 +29,12 @@
 .description{
     resize:none;
 }
+
+.btn-cancel{
+    background-color: #dc3545;
+    color:#000;
+    transition: 0.5s;
+}
+.btn-cancel:hover{
+    color:#fff;
+}

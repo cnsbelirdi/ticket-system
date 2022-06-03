@@ -9,8 +9,8 @@ export default function Admin() {
                 <div className="events">
                     <h1 className="pt-4">WELCOME ADMIN!</h1>
                     <h2 className="text-orange">Today's Event</h2>
-                    <Event/>
-                    <Event/>
+                    <Event page={"Main"}/>
+                    <Event page={"Main"}/>
                 </div>
             </div>
         </div>

@@ -73,6 +73,7 @@
 
 .bg-orange{
     background-color: #ff7143;
+    transition:0.5s;
 }
 
 .bg-orange:hover{
