@@ -62,3 +62,20 @@
     color: #fff;
     font-size: 100px;
 }
+
+.text-orange{
+    color:#ff7143;
+}
+
+.text-pink{
+    color:#ea1e63;
+}
+
+.bg-orange{
+    background-color: #ff7143;
+    transition:0.5s;
+}
+
+.bg-orange:hover{
+    color:#fff;
+}
