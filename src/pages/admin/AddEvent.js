@@ -2,6 +2,11 @@ import React, { useState } from "react";
 
 export default function AddEvent(){
     const event_types = ["Music", "Cinema","Theater"];
+    const event_subtypes = [
+        ["Pop","Hiphop","Rock","Funk","Folk","Jazz","Blues","Classical","Electronic"],
+        ["Action","Animation","Comedy","Drama","Horror","Mystery","Romance","Thriller"],
+        ["Child","Adult"]
+    ];
     const cities = ["ISTANBUL", "ANKARA", "IZMIR", "ANTALYA", "SAMSUN"];
     const [type ="default", setType] = useState();
     return(
@@ -22,6 +27,21 @@ export default function AddEvent(){
                                 </select>
                             </div>
                         </div>
+                        <div className="col">
+                            <div className="form-group">
+                                <label htmlFor="event-subtype">Event Subtype</label>
+                                <select  className="form-control text-uppercase" name="event-subtype" id="event-subtype" >
+                                    <option value="default" disabled>Select..</option>
+                                    {event_types.map(type => {
+                                        return (
+                                            <option value={type}>{type}</option>
+                                        );
+                                    })}
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="row">
                         <div className="col">
                             <div className="form-group">
                                 <label htmlFor="event-name">Event Name</label>
@@ -96,7 +116,7 @@ export default function AddEvent(){
                     </div>
                     <div className="row dflex justify-content-end">
                         <div className="col-2 mb-5">
-                            <button type="submit" className="btn bg-orange pl-4 pr-4 mb-5 radius-10">ADD</button>
+                            <button type="submit" className="btn bg-orange pl-4 pr-4 mb-5 ">ADD</button>
                         </div>
                     </div>
                 </form>

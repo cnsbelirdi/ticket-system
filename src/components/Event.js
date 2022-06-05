@@ -2,10 +2,10 @@ import React from 'react';
 
 export default function Event({page,event}){
     return(
-        <div className="card mb-4 radius-10" style={{maxWidth:800}}>
+        <div className="card mb-4" style={{maxWidth:800}}>
             <div className="row no-gutters">
                 <div className="col-3">
-                    <img src={event.image} alt="Deep Purple" className="event-img"/>
+                    <img src={event.image} alt="Deep Purple" className="event-img rounded-0"/>
                 </div>
                 <div className="col-3 pl-2">
                     <div className="card-body border-right-dashed mt-2 mb-2">
@@ -32,10 +32,10 @@ export default function Event({page,event}){
                 </div>
                 <div className="col-3">
                     <div className="card-body">
-                        <button type="button" className="btn bg-orange mt-5 radius-10">Show Details</button>
+                        <button type="button" className="btn bg-orange mt-5">Show Details</button>
                         {
                             page !== "Main" ? 
-                            <button type="button" className="btn btn-cancel mt-2 ml-4 radius-10">Cancel</button>:""
+                            <button type="button" className="btn btn-cancel mt-2 ml-4">Cancel</button>:""
                         }
                     </div>
                 </div>
