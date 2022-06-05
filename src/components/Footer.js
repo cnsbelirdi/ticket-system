@@ -6,28 +6,6 @@ import { Link } from 'react-router-dom';
 function Footer() {
   return (
     <div className='footer-container'>
-      <section className='footer-subscription'>
-        <p className='footer-subscription-heading'>
-          If you have any questions, please contact us.
-        </p>
-        <p className='footer-subscription-text'>
-          You can unsubscribe at any time.
-        </p>
-        <div className='input-areas'>
-          <form>
-            <input
-              className='footer-input'
-              name='email'
-              type='email'
-              placeholder='Your Email'
-            />
-            <Button buttonStyle='btn--outline'>Subscribe</Button>
-          </form>
-        </div>
-      </section>
-      <div className='footer-links'>
-        <div className='footer-link-wrapper'>
-          <div className='footer-link-items'>
       <div class='footer-links'>
         <div className='footer-link-wrapper'>
           <section className='footer-subscription'>
@@ -64,8 +42,6 @@ function Footer() {
           </div>
         </div>
         <div className='footer-link-wrapper'>
-          <div className='footer-link-items'>
-            <h2>Politikalar ve Bildirim</h2>
           <div class='footer-link-items'>
             <h2>Politikalar</h2>
             <Link to='/'>Sözleşme ve Politikalar</Link>
@@ -79,8 +55,6 @@ function Footer() {
         <div className='social-media-wrap'>
           <div className='footer-logo'>
             <Link to='/' className='social-logo'>
-              FANTASTICKET
-              <i className='fab fa-typo3' />
               fantasticket
               <i class='fab fa-typo3' />
             </Link>
