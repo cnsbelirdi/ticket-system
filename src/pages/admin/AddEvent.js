@@ -1,14 +1,30 @@
 import React, { useState } from "react";
 
 export default function AddEvent(){
-    const event_types = ["Music", "Cinema","Theater"];
-    const event_subtypes = [
-        ["Pop","Hiphop","Rock","Funk","Folk","Jazz","Blues","Classical","Electronic"],
-        ["Action","Animation","Comedy","Drama","Horror","Mystery","Romance","Thriller"],
-        ["Child","Adult"]
-    ];
     const cities = ["ISTANBUL", "ANKARA", "IZMIR", "ANTALYA", "SAMSUN"];
-    const [type ="default", setType] = useState();
+    const type_list = [
+        {
+            name : "Music",
+            substypes : ["Pop","Hiphop","Rock","Funk","Folk","Jazz","Blues","Classical","Electronic"]
+        },
+        {
+            name : "Cinema",
+            substypes : ["Action","Animation","Comedy","Drama","Horror","Mystery","Romance","Thriller"]
+        },
+        {
+            name : "Theater",
+            substypes : ["Child","Adult"]
+        }
+    ]
+    const [type, setType] = useState("default");
+    const [subType, setsubType] = useState([]);
+    const handleType = (e) => {
+        const type = type_list.find(
+          (type) => type.name === e.target.value
+        );
+        setType(type.name);
+        setsubType(type.substypes);
+    };
     return(
         <div className="bg-admin-grey min-height-65">
             <div className="container d-flex justify-content-center pt-5">
@@ -17,11 +33,11 @@ export default function AddEvent(){
                         <div className="col">
                             <div className="form-group">
                                 <label htmlFor="event-type">Event Type</label>
-                                <select value={type} onChange={(e) => setType(e.target.value)} className="form-control text-uppercase" name="event-type" id="event-type" >
+                                <select value={type}  onChange={(e) => handleType(e)} className="form-control text-uppercase" name="event-type" id="event-type" >
                                     <option value="default" disabled>Select..</option>
-                                    {event_types.map(type => {
+                                    {type_list.map((t, key) => {
                                         return (
-                                            <option value={type}>{type}</option>
+                                            <option key={key} value={t.name}>{t.name}</option>
                                         );
                                     })}
                                 </select>
@@ -30,16 +46,15 @@ export default function AddEvent(){
                         <div className="col">
                             <div className="form-group">
                                 <label htmlFor="event-subtype">Event Subtype</label>
-                                <select  className="form-control text-uppercase" name="event-subtype" id="event-subtype" >
-                                    <option value="default" disabled>Select..</option>
-                                    {event_types.map(type => {
+                                <select className="form-control text-uppercase" name="event-subtype" id="event-subtype" >
+                                    {subType.map((sub,key) => {
                                         return (
-                                            <option value={type}>{type}</option>
+                                            <option key={key} value={sub}>{sub}</option>
                                         );
                                     })}
                                 </select>
                             </div>
-                        </div>
+                        </div> 
                     </div>
                     <div className="row">
                         <div className="col">
@@ -80,9 +95,9 @@ export default function AddEvent(){
                                 <label htmlFor="event-place">Place</label>
                                 <select className="form-control" id="event-place" name="event-place" required>
                                     <option value="default">Select..</option>
-                                    {cities.map(city => {
+                                    {cities.map((city,key) => {
                                         return (
-                                            <option value={city}>{city}</option>
+                                            <option key={key} value={city}>{city}</option>
                                         );
                                     })}
                                 </select>
@@ -110,7 +125,7 @@ export default function AddEvent(){
                         <div className="col">
                             <div className="form-group admin-event-check">
                                 <input type="checkbox" name="seatplan"/>
-                                <label for="seatplan">Seat plan</label>
+                                <label htmlFor="seatplan">Seat plan</label>
                             </div>
                         </div>
                     </div>

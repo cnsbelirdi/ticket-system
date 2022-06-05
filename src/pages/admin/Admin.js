@@ -21,7 +21,7 @@ export default function Admin() {
                         })
                     }
                 </div> */}
-                <div class="dashboard">
+                <div className="dashboard">
                     <h1 className="pt-4">Welcome Admin!</h1>
                     <div className="row">
                         <div className="col bg-white m-2">

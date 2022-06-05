@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 function Footer() {
   return (
     <div className='footer-container'>
-      <div class='footer-links'>
+      <div className='footer-links'>
         <div className='footer-link-wrapper'>
           <section className='footer-subscription'>
             <p className='footer-subscription-heading'>
@@ -27,7 +27,7 @@ function Footer() {
               </form>
             </div>
           </section>
-          <div class='footer-link-items'>
+          <div className='footer-link-items'>
             <h2>About Us</h2>
             <Link to='/sign-up'>Who Are We?</Link>
             <Link to='/'>Language and Programs We Used</Link>
@@ -42,7 +42,7 @@ function Footer() {
           </div>
         </div>
         <div className='footer-link-wrapper'>
-          <div class='footer-link-items'>
+          <div className='footer-link-items'>
             <h2>Politikalar</h2>
             <Link to='/'>Sözleşme ve Politikalar</Link>
             <Link to='/'>Çerez Politikasi</Link>
@@ -56,7 +56,7 @@ function Footer() {
           <div className='footer-logo'>
             <Link to='/' className='social-logo'>
               fantasticket
-              <i class='fab fa-typo3' />
+              <i className='fab fa-typo3' />
             </Link>
           </div>
           <small className='website-rights'>developed by Group 2 ©2022</small>
