@@ -26,52 +26,52 @@ function Navbar() {
 
     return (
         <>
-            <nav className='navbar'>
-                <div className='navbar-container'>
-                    <Link to='/' className='navbar-logo' onClick={closeMobileMenu}>
+            <nav className='ticket-navbar'>
+                <div className='ticket-navbar-container'>
+                    <Link to='/' className='ticket-navbar-logo' onClick={closeMobileMenu}>
                         fantasticket
-                        <i class='fab fa-typo3' />
+                        <i className='fab fa-typo3' />
                     </Link>
-                    <div className='menu-icon' onClick={handleClick}>
+                    <div className='ticket-menu-icon' onClick={handleClick}>
                         <i className={click ? 'fas fa-times' : 'fas fa-bars'} />
                     </div>
-                    <ul className={click ? 'nav-menu active' : 'nav-menu'}>
-                        <li className='nav-item'>
-                            <Link to='/' className='nav-links text-decoration-none' onClick={closeMobileMenu}>
+                    <ul className={click ? 'ticket-nav-menu active' : 'ticket-nav-menu'}>
+                        <li className='ticket-nav-item'>
+                            <Link to='/' className='ticket-nav-links text-decoration-none' onClick={closeMobileMenu}>
                                 Home
                             </Link>
                         </li>
-                        <li className='nav-item'>
+                        <li className='ticket-nav-item'>
                             <Link
                                 to='/music'
-                                className='nav-links text-decoration-none'
+                                className='ticket-nav-links text-decoration-none'
                                 onClick={closeMobileMenu}
                             >
                                 Music
                             </Link>
                         </li>
-                        <li className='nav-item'>
+                        <li className='ticket-nav-item'>
                             <Link
                                 to='/cinema'
-                                className='nav-links text-decoration-none'
+                                className='ticket-nav-links text-decoration-none'
                                 onClick={closeMobileMenu}
                             >
                                 Cinema
                             </Link>
                         </li>
-                        <li className='nav-item'>
+                        <li className='ticket-nav-item'>
                             <Link
                                 to='/stage'
-                                className='nav-links text-decoration-none'
+                                className='ticket-nav-links text-decoration-none'
                                 onClick={closeMobileMenu}
                             >
-                                Stage
+                                Theater
                             </Link>
                         </li>
-                        <li className='nav-item'>
+                        <li className='ticket-nav-item'>
                             <Link
                                 to='/others'
-                                className='nav-links text-decoration-none'
+                                className='ticket-nav-links text-decoration-none'
                                 onClick={closeMobileMenu}
                             >
                                 Others
@@ -81,7 +81,7 @@ function Navbar() {
                         <li>
                             <Link
                                 to='/sign-up'
-                                className='nav-links-mobile text-decoration-none'
+                                className='ticket-nav-links-mobile text-decoration-none'
                                 onClick={closeMobileMenu}
                             >
                                 Sign Up
@@ -90,7 +90,7 @@ function Navbar() {
                         <li>
                             <Link
                                 to='/sign-in'
-                                className='nav-links-mobile text-decoration-none'
+                                className='ticket-nav-links-mobile text-decoration-none'
                                 onClick={closeMobileMenu}
                             >
                                 Sign In

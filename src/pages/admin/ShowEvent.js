@@ -1,6 +1,8 @@
 import React from "react";
 import Event from '../../components/Event';
 
+import mockEvents from './mockData';
+
 export default function ShowEvent(){
     const event_types = ["Music", "Cinema","Theater"];
     const cities = ["ISTANBUL", "ANKARA", "IZMIR", "ANTALYA", "SAMSUN"];
@@ -45,8 +47,13 @@ export default function ShowEvent(){
                             </div>
                         </div>
                     </div>
-                    <Event page={"Show"}/>
-                    <Event page={"Show"}/>
+                    {
+                        mockEvents.data.map(e => {
+                            return(
+                                <Event page={"Show"} event={e}/>
+                            );
+                        })
+                    }
                 </div>
             </div>
         </div>

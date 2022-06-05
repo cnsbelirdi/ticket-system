@@ -38,3 +38,21 @@
 .btn-cancel:hover{
     color:#fff;
 }
+
+.admin-event-check{
+    margin-top:38px;
+    position: relative;
+}
+
+.admin-event-check > input[type="checkbox"]{
+    margin:0;
+    padding:0;
+    height:24px;
+    width:24px;
+    margin-right: 10px;
+    margin-left: 20px;
+}
+
+.admin-event-check > label{
+    position: absolute;
+}
