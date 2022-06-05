@@ -1,5 +1,5 @@
 import React from "react";
-import Event from "./components/Event";
+import Event from '../../components/Event';
 
 export default function ShowEvent(){
     const event_types = ["Music", "Cinema","Theater"];

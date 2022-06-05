@@ -1,7 +1,6 @@
 import React from 'react';
 
-export default function Event(props){
-    const page = props.page;
+export default function Event({page}){
     return(
         <div className="card mb-4 radius-10" style={{maxWidth:800}}>
             <div className="row no-gutters">
