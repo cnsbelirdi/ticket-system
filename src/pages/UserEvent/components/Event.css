@@ -1,0 +1,45 @@
+.card__container,
+.tabs__container{
+    margin: 2rem 1rem;
+    align-items: center;
+}
+
+.tabs__container {
+    border: 1px solid lightgrey;
+}
+
+.card-header {
+    height: 53px;
+}
+
+.event-img{
+    width:190px;
+    height:190px;
+    object-fit: cover;
+    margin:10px;
+    border-radius:10px;
+}
+
+.radius-10{
+    border-radius:10px;
+}
+
+.border-right-dashed{
+    border-right:1px dashed #999;
+}
+
+.events{
+    font-size:14px;
+}
+
+.min-width-780{
+    min-width: 780px;
+}
+
+.description{
+    resize:none;
+}
+
+.ticket-days{
+    margin: 1rem;
+}
