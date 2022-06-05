@@ -13,16 +13,16 @@ export default function SignIn() {
                             <div className="row row-space">
                                 <div className="col">
                                     <div className="input-group">
-                                        <label className="label" for="email">Email</label>
-                                        <input className="input-style-2" type="email" name="email"/>
+                                        <label className="label" htmlFor="email_username">Email & Username</label>
+                                        <input className="input-style-1" type="text" name="username" id="email_username" />
                                     </div>
                                 </div>
                             </div>
                             <div className="row row-space">
                                 <div className="col">
                                     <div className="input-group">
-                                        <label className="label" for="password">Password</label>
-                                        <input className="input-style-2" type="password" name="password"/>
+                                        <label className="label" htmlFor="password">Password</label>
+                                        <input className="input-style-1" type="password" name="password" id="password"/>
                                     </div>
                                 </div>
                             </div>
