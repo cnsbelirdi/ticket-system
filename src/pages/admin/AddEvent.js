@@ -1,30 +1,21 @@
 import React, { useState } from "react";
+import { cities, type_list } from "../../utils/EventUtils";
 
 export default function AddEvent(){
-    const cities = ["ISTANBUL", "ANKARA", "IZMIR", "ANTALYA", "SAMSUN"];
-    const type_list = [
-        {
-            name : "Music",
-            substypes : ["Pop","Hiphop","Rock","Funk","Folk","Jazz","Blues","Classical","Electronic"]
-        },
-        {
-            name : "Cinema",
-            substypes : ["Action","Animation","Comedy","Drama","Horror","Mystery","Romance","Thriller"]
-        },
-        {
-            name : "Theater",
-            substypes : ["Child","Adult"]
-        }
-    ]
     const [type, setType] = useState("default");
     const [subType, setsubType] = useState([]);
+
+    const cityList = cities;
+    const typeList = type_list;
+    
     const handleType = (e) => {
-        const type = type_list.find(
+        const type = typeList.find(
           (type) => type.name === e.target.value
         );
         setType(type.name);
         setsubType(type.substypes);
     };
+    
     return(
         <div className="bg-admin-grey min-height-65">
             <div className="container d-flex justify-content-center pt-5">
@@ -35,7 +26,7 @@ export default function AddEvent(){
                                 <label htmlFor="event-type">Event Type</label>
                                 <select value={type}  onChange={(e) => handleType(e)} className="form-control text-uppercase" name="event-type" id="event-type" >
                                     <option value="default" disabled>Select..</option>
-                                    {type_list.map((t, key) => {
+                                    {typeList.map((t, key) => {
                                         return (
                                             <option key={key} value={t.name}>{t.name}</option>
                                         );
@@ -95,7 +86,7 @@ export default function AddEvent(){
                                 <label htmlFor="event-place">Place</label>
                                 <select className="form-control" id="event-place" name="event-place" required>
                                     <option value="default">Select..</option>
-                                    {cities.map((city,key) => {
+                                    {cityList.map((city,key) => {
                                         return (
                                             <option key={key} value={city}>{city}</option>
                                         );

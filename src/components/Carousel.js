@@ -50,6 +50,7 @@ const Carousel = () => {
     return (
         <div className='carousel-wrapper'>
             <AliceCarousel
+                disableButtonsControls={true}
                 infinite
                 autoPlay
                 autoPlayInterval={1500}

@@ -26,7 +26,7 @@ function Navbar() {
 
     return (
         <>
-            <nav className='ticket-navbar'>
+            <nav className='ticket-navbar navbar'>
                 <div className='ticket-navbar-container'>
                     <Link to='/' className='ticket-navbar-logo' onClick={closeMobileMenu}>
                         fantasticket

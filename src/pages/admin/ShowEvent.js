@@ -1,12 +1,13 @@
 import React from "react";
 import Event from '../../components/Event';
+import { cities, events } from "../../utils/EventUtils";
 
 import mockEvents from './mockData';
 
-export default function ShowEvent(){
-    const event_types = ["Music", "Cinema","Theater"];
-    const cities = ["ISTANBUL", "ANKARA", "IZMIR", "ANTALYA", "SAMSUN"];
-    return(
+export default function ShowEvent() {
+    const eventTypes = events;
+    const cityList = cities;
+    return (
         <div className="bg-admin-grey min-height-65">
             <div className="container d-flex justify-content-center">
                 <div className="events mt-4">
@@ -19,7 +20,7 @@ export default function ShowEvent(){
                                 <label htmlFor="event-type">Event Type</label>
                                 <select className="form-control text-uppercase" name="event-type" id="event-type" required>
                                     <option value="default">Select..</option>
-                                    {event_types.map(type => {
+                                    {eventTypes.map(type => {
                                         return (
                                             <option value={type}>{type}</option>
                                         );
@@ -32,7 +33,7 @@ export default function ShowEvent(){
                                 <label htmlFor="event-city">City</label>
                                 <select className="form-control" id="event-city" name="event-city" required>
                                     <option value="default">Select..</option>
-                                    {cities.map(city => {
+                                    {cityList.map(city => {
                                         return (
                                             <option value={city}>{city}</option>
                                         );
@@ -49,14 +50,14 @@ export default function ShowEvent(){
                     </div>
                     {
                         mockEvents.data.map(e => {
-                            return(
-                                <Event page={"Show"} event={e}/>
+                            return (
+                                <Event page={"Show"} event={e} />
                             );
                         })
                     }
                 </div>
             </div>
         </div>
-        
+
     );
 }
