@@ -14,6 +14,7 @@ import Admin from './pages/admin/Admin';
 import AddEvent from './pages/admin/AddEvent';
 import ShowEvent from './pages/admin/ShowEvent';
 import UserEvent from "./pages/UserEvent/UserEvent";
+import UserReserv from "./pages/UserEvent/UserReserv";
 
 function App() {
     return (
@@ -32,6 +33,7 @@ function App() {
                     <Route path='/admin/add-event' element={<AddEvent />} />
                     <Route path='/admin/show-event' element={<ShowEvent />} />
                     <Route path='/event' element={<UserEvent />} />
+                    <Route path='/event/reservation' element={<UserReserv />} />
                 </Routes>
                 <Footer/>
             </Router>

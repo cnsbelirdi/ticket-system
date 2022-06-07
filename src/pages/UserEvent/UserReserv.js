@@ -1,5 +1,4 @@
 import React from 'react';
-import Event from './components/Event'
 import Reservation from "./components/Reservation";
 
 const EventInfo = {
@@ -14,22 +13,21 @@ const EventInfo = {
     castMusician: 'Yönetmen: Ali Ali,Senaryo: Ayşe Ayşe,Yapımcı: İrem İrem,Oyuncular: Berk Berk',
 }
 
-function UserEvent() {
+function UserReserv() {
     return (
         <>
-            <Event
+            <Reservation
                 src={EventInfo.src}
                 title={EventInfo.title}
                 date={EventInfo.date}
                 time={EventInfo.time}
                 place={EventInfo.place}
-                room={EventInfo.room}
                 purchasedTicket={EventInfo.purchasedTicket}
                 unsoldTicket={EventInfo.unsoldTicket}
-                castMusician={EventInfo.castMusician}
             />
         </>
     );
 }
 
-export default UserEvent;
+export default UserReserv;
+

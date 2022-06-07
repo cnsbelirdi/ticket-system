@@ -1,50 +1,38 @@
 import React from 'react';
 import './Event.css'
 
-const EventInfo = {
-    src: "/images/matrix-re.jpg",
-    title: "Matrix Resurrection",
-    date: "Wed, May 22nd 2022",
-    time: "21:00",
-    place: "Istanbul",
-    room: ['Room #1', 'Room #2'],
-    purchasedTicket: "150",
-    unsoldTicket: "150",
-    castMusician: 'Yönetmen: Ali Ali,Senaryo: Ayşe Ayşe,Yapımcı: İrem İrem,Oyuncular: Berk Berk',
-}
+function Event(props) {
+    const splitter = props.castMusician.split(',');
 
-const splitter = EventInfo.castMusician.split(',');
-
-function Event() {
     return (
         <>
             <div className='card__container'>
                 <div className="card mb-3" style={{maxWidth: 800}}>
                     <div className="row no-gutters">
                         <div className="col-md-4">
-                            <img src={EventInfo.src} alt={EventInfo.title} className="event-img"/>
+                            <img src={props.src} alt={props.title} className="event-img"/>
                         </div>
                         <div className="col-3 pl-2">
                             <div className="card-body mt-2 mb-2">
-                                <h5 className="card-title">{EventInfo.title}</h5>
+                                <h5 className="card-title">{props.title}</h5>
                                 <p className="card-text text-pink">
                                     <i className="far fa-calendar-alt mr-1"></i>
-                                    {EventInfo.date}
+                                    {props.date}
                                 </p>
                                 <p className="card-text text-orange">
                                     <i className="far fa-clock mr-1"></i>
-                                    {EventInfo.time}
+                                    {props.time}
                                 </p>
                                 <p className="card-text text-secondary">
                                     <i className="fas fa-map-marker-alt mr-1"></i>
-                                    {EventInfo.place}
+                                    {props.place}
                                 </p>
                             </div>
                         </div>
                         <div className="col-3">
                             <div className="card-body mt-5">
-                                <p className="card-text">Purchased: <span>{EventInfo.purchasedTicket}</span></p>
-                                <p className="card-text">Unsold: <span>{EventInfo.unsoldTicket}</span></p>
+                                <p className="card-text">Purchased: <span>{props.purchasedTicket}</span></p>
+                                <p className="card-text">Unsold: <span>{props.unsoldTicket}</span></p>
                             </div>
                         </div>
                     </div>
@@ -69,10 +57,10 @@ function Event() {
                         <div className="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
                             <h5 className="card-title">Please select a date</h5>
                             {
-                                EventInfo.room.map(function(element, index) {
+                                props.room.map(function(element, index) {
                                     return <div className='ticket-days'>
-                                             <p className="card-text">{EventInfo.place} - {EventInfo.room[index]}</p>
-                                             <button type="button" className="btn btn-outline-info">{EventInfo.date}</button>
+                                             <p className="card-text">{props.place} - {props.room[index]}</p>
+                                             <button type="button" className="btn btn-outline-info">{props.date}</button>
                                           </div>
                                 })
                             }
