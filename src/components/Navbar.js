@@ -59,23 +59,80 @@ function Navbar() {
                                 Cinema
                             </Link>
                         </li>
-                        <li className='nav-item'>
-                            <Link
-                                to='/stage'
-                                className='nav-links text-decoration-none'
+                        <li className='nav-item dropdown'>
+                            <button
+                                className='nav-links-dropdown text-decoration-none dropdown-toggle'
+                                type='button'
+                                id='dropdownMenuButton'
+                                data-toggle='dropdown'
                                 onClick={closeMobileMenu}
                             >
                                 Stage
-                            </Link>
+                            </button>
+                            <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                <Link
+                                    to='/theater'
+                                    className='text-decoration-none dropdown-item'
+                                    onClick={closeMobileMenu}
+                                >
+                                    Theater
+                                </Link>
+                                <Link
+                                    to='/stand-up'
+                                    className='text-decoration-none dropdown-item'
+                                    onClick={closeMobileMenu}
+                                >
+                                    Stand-Up
+                                </Link>
+                                <Link
+                                    to='/dance'
+                                    className='text-decoration-none dropdown-item'
+                                    onClick={closeMobileMenu}
+                                >
+                                    Dance
+                                </Link>
+                            </div>
                         </li>
-                        <li className='nav-item'>
-                            <Link
-                                to='/others'
-                                className='nav-links text-decoration-none'
+                        <li className='nav-item dropdown'>
+                            <button
+                                className='nav-links-dropdown text-decoration-none dropdown-toggle'
+                                type='button'
+                                id='dropdownMenuButton'
+                                data-toggle='dropdown'
                                 onClick={closeMobileMenu}
                             >
                                 Others
-                            </Link>
+                            </button>
+                            <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                <Link
+                                    to='/sport'
+                                    className='text-decoration-none dropdown-item'
+                                    onClick={closeMobileMenu}
+                                >
+                                    Sport
+                                </Link>
+                                <Link
+                                    to='/exhibition'
+                                    className='text-decoration-none dropdown-item'
+                                    onClick={closeMobileMenu}
+                                >
+                                    Exhibition
+                                </Link>
+                                <Link
+                                    to='/circus'
+                                    className='text-decoration-none dropdown-item'
+                                    onClick={closeMobileMenu}
+                                >
+                                    Circus
+                                </Link>
+                                <Link
+                                    to='/workshop'
+                                    className='text-decoration-none dropdown-item'
+                                    onClick={closeMobileMenu}
+                                >
+                                    Workshop
+                                </Link>
+                            </div>
                         </li>
 
                         <li>
