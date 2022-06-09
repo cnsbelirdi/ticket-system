@@ -34,20 +34,20 @@ function Footer() {
             <Link to='/'>Contact Us</Link>
           </div>
           <div class='footer-link-items'>
-            <h2>Let Us Help</h2>
+            <h2>Looking for Help?</h2>
             <Link to='/'>Help</Link>
             <Link to='/'>Gift Card</Link>
             <Link to='/'>Fantastic Wallet</Link>
-            <Link to='/'>Etkinlik Katılım Sigortası</Link>
+            <Link to='/'>Event Ticket Insurance</Link>
           </div>
         </div>
         <div className='footer-link-wrapper'>
           <div class='footer-link-items'>
-            <h2>Politikalar</h2>
-            <Link to='/'>Sözleşme ve Politikalar</Link>
-            <Link to='/'>Çerez Politikasi</Link>
-            <Link to='/'>iade Politikası</Link>
-            <Link to='/'>KVKK Hakkında</Link>
+            <h2>Legal</h2>
+            <Link to='/'>Contract & Policies</Link>
+            <Link to='/'>Cookie Policy</Link>
+            <Link to='/'>Return Policy</Link>
+            <Link to='/'>About GDPR</Link>
           </div>
         </div>
       </div>
