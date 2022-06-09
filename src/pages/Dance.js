@@ -9,7 +9,7 @@ export default function Dance() {
             </div>
             <div style={{ background: "#f0f0f0", margin: -15, }}>
                 <div style={{ marginLeft: 50, marginRight: 50, paddingTop: 25, }}>
-                    <FilteredCarousel filter={3}/>
+                    <FilteredCarousel filter={5}/>
                 </div>
             </div>
         </>

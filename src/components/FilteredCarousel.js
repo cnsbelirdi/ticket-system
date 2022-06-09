@@ -67,7 +67,7 @@ const CardsItemData = [
         genre: 4,
     },
     {
-        src: 'images/img-8.jpg',
+        src: 'images/img-7.jpg',
         heading: 'Dance',
         text: 'Time to show your talent!',
         label: 'Dance',

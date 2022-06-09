@@ -17,6 +17,7 @@ import ShowEvent from './pages/admin/ShowEvent';
 import UserEvent from "./pages/UserEvent/UserEvent";
 import UserReserv from "./pages/UserEvent/UserReserv";
 import Theater from "./pages/Theater";
+import Dance from "./pages/Dance";
 
 function App() {
     return (
@@ -29,6 +30,7 @@ function App() {
                     <Route path='/cinema' element={<Cinema />} />
                     <Route path='/stand-up' element={<StandUp />} />
                     <Route path='/theater' element={<Theater />} />
+                    <Route path='/dance' element={<Dance />} />
                     <Route path='/stage' element={<Stage />} />
                     <Route path='/others' element={<Others />} />
                     <Route path='/sign-up' element={<SignUp />} />
