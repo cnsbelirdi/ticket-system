@@ -1,13 +1,16 @@
 import React from 'react';
-import '../App.css';
-import Carousel from '../components/Carousel'
+import FilteredCarousel from '../components/FilteredCarousel'
 
 export default function Music() {
     return (
         <>
-            <h1>Music</h1>
-            <div>
-                <Carousel />
+            <div style={{ paddingLeft: 50, background: "#bfbfbf",}}>
+                <h1 style={{ padding: 25, }}>Music</h1>
+            </div>
+            <div style={{ background: "#f0f0f0", margin: -15, }}>
+                <div style={{ marginLeft: 50, marginRight: 50, paddingTop: 25, }}>
+                    <FilteredCarousel filter={1}/>
+                </div>
             </div>
         </>
     );
