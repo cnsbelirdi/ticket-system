@@ -1,6 +1,17 @@
 import React from 'react';
-import '../App.css';
+import FilteredCarousel from "../components/FilteredCarousel";
 
 export default function Cinema() {
-    return <h1 className='cinema'>Cinema</h1>;
+    return (
+        <>
+            <div style={{ paddingLeft: 50, background: "#bfbfbf",}}>
+                <h1 style={{ padding: 25, }}>Cinema</h1>
+            </div>
+            <div style={{ background: "#f0f0f0", margin: -15, }}>
+                <div style={{ marginLeft: 50, marginRight: 50, paddingTop: 25, }}>
+                    <FilteredCarousel filter={2}/>
+                </div>
+            </div>
+        </>
+    );
 }

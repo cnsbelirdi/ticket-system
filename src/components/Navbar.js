@@ -28,7 +28,7 @@ function Navbar() {
         <>
             <nav className='navbar'>
                 <div className='navbar-container'>
-                    <Link to='/' className='navbar-logo' onClick={closeMobileMenu}>
+                    <Link to='/' className='navbar-logo nav--button' onClick={closeMobileMenu}>
                         fantasticket
                         <i class='fab fa-typo3' />
                     </Link>
@@ -154,9 +154,13 @@ function Navbar() {
                             </Link>
                         </li>
                     </ul>
-                    {button && <Button buttonStyle='btn--outline'>SIGN UP</Button>}
+                    <div className='nav--button'>
+                        {button && <Button buttonStyle='btn--outline'>SIGN UP</Button>}
+                    </div>
                     <span>&nbsp;&nbsp;</span>
-                    {button && <Button buttonStyle='btn--outline'>SIGN IN</Button>}
+                    <div className='nav--button'>
+                        {button && <Button buttonStyle='btn--outline'>SIGN IN</Button>}
+                    </div>
                 </div>
             </nav>
         </>

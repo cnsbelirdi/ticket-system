@@ -8,6 +8,7 @@ import Cinema from './pages/Cinema';
 import Stage from './pages/Stage';
 import Others from './pages/Others';
 import SignUp from './pages/SignUp';
+import StandUp from './pages/StandUp';
 import Footer from './components/Footer';
 import SignIn from './pages/SignIn';
 import Admin from './pages/admin/Admin';
@@ -15,6 +16,7 @@ import AddEvent from './pages/admin/AddEvent';
 import ShowEvent from './pages/admin/ShowEvent';
 import UserEvent from "./pages/UserEvent/UserEvent";
 import UserReserv from "./pages/UserEvent/UserReserv";
+import Theater from "./pages/Theater";
 
 function App() {
     return (
@@ -25,6 +27,8 @@ function App() {
                     <Route path='/' element={<Home />} />
                     <Route path='/music' element={<Music />} />
                     <Route path='/cinema' element={<Cinema />} />
+                    <Route path='/stand-up' element={<StandUp />} />
+                    <Route path='/theater' element={<Theater />} />
                     <Route path='/stage' element={<Stage />} />
                     <Route path='/others' element={<Others />} />
                     <Route path='/sign-up' element={<SignUp />} />
