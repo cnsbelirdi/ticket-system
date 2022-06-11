@@ -4,10 +4,10 @@ export default function Event({page,event}){
     return(
         <div className="card mb-4" style={{maxWidth:800}}>
             <div className="row no-gutters">
-                <div className="col-3">
+                <div className="col-sm">
                     <img src={event.image} alt="Deep Purple" className="event-img rounded-0"/>
                 </div>
-                <div className="col-3 pl-2">
+                <div className="col-sm">
                     <div className="card-body border-right-dashed mt-2 mb-2">
                         <h5 className="card-title">{event.eventName}</h5>
                         <p className="card-text text-pink">
@@ -24,13 +24,13 @@ export default function Event({page,event}){
                         </p>
                     </div>
                 </div>
-                <div className="col-3">
+                <div className="col-sm">
                     <div className="card-body mt-5">
                         <p className="card-text">Capacity: <span>{event.capacity}</span></p>
                         <p className="card-text">Price: <span>{event.unitPrice}$</span></p>
                     </div>
                 </div>
-                <div className="col-3">
+                <div className="col-sm">
                     <div className="card-body">
                         <button type="button" className="btn bg-orange mt-5">Show Details</button>
                         {
