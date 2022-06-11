@@ -19,7 +19,6 @@
 }
 
 .stage {
-    background-image: url('./img-2.jpg');
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
@@ -28,7 +27,6 @@
 }
 
 .music {
-    background-image: url('./img-1.jpg');
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
@@ -37,7 +35,6 @@
 }
 
 .cinema {
-    background-image: url('./img-1.jpg');
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
@@ -46,7 +43,6 @@
 }
 
 .others {
-    background-image: url('./img-2.jpg');
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;

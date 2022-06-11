@@ -20,14 +20,16 @@ export const Button = ({
   const checkButtonSize = SIZES.includes(buttonSize) ? buttonSize : SIZES[0];
 
   return (
-    <Link to={`${children === 'SIGN UP' ? '/sign-up' : '/sign-in'}`} className='btn-mobile'>
-      <button
+    // Button üzerinde link olduğu için submite tepki vermiyor
+    // <Link to={`${children === 'SIGN UP' ? '/sign-up' : '/sign-in'}`} className='btn-mobile'>
+      
+    // </Link>
+    <button
         className={`btn ${checkButtonStyle} ${checkButtonSize}`}
         onClick={onClick}
         type={type}
       >
         {children}
       </button>
-    </Link>
   );
 };

@@ -2,10 +2,16 @@ import React, { useState, useEffect } from 'react';
 import { Button } from './Button';
 import { Link } from 'react-router-dom';
 import './Navbar.css';
+import { useAuth } from '../contexts/AuthContext';
+import { Auth } from '../api/Auth';
+
+
+const authService = new Auth();
 
 function Navbar() {
     const [click, setClick] = useState(false);
     const [button, setButton] = useState(true);
+    const [auth, setAuth] = useAuth();
 
     const handleClick = () => setClick(!click);
     const closeMobileMenu = () => setClick(false);
@@ -21,6 +27,19 @@ function Navbar() {
     useEffect(() => {
         showButton();
     }, []);
+
+
+    const handleLogout = () => {
+        setAuth({
+            username: '',
+            role: '',
+            token :''
+        });
+
+        authService.removeAuthorizationCookie();
+
+        closeMobileMenu();
+    } 
 
     window.addEventListener('resize', showButton);
 
@@ -78,28 +97,73 @@ function Navbar() {
                             </Link>
                         </li>
 
-                        <li>
-                            <Link
-                                to='/sign-up'
-                                className='ticket-nav-links-mobile text-decoration-none'
-                                onClick={closeMobileMenu}
-                            >
-                                Sign Up
-                            </Link>
-                        </li>
-                        <li>
-                            <Link
-                                to='/sign-in'
-                                className='ticket-nav-links-mobile text-decoration-none'
-                                onClick={closeMobileMenu}
-                            >
-                                Sign In
-                            </Link>
-                        </li>
+                        {
+                            authService.getLoginToken() && <div>
+                                <li>
+                                    <Link
+                                        to='/account'
+                                        className='ticket-nav-links-mobile text-decoration-none'
+                                        onClick={closeMobileMenu}
+                                    >
+                                        Account
+                                    </Link>
+                                </li>
+                                <li>
+                                    <Link
+                                        to='/sign-in'
+                                        className='ticket-nav-links-mobile text-decoration-none'
+                                        onClick={handleLogout}
+                                    >
+                                        Log out
+                                    </Link>
+                                </li>
+                            </div>
+                            
+                        }
+                        {
+                            !authService.getLoginToken() && <div>
+                                <li>
+                                    <Link
+                                        to='/sign-up'
+                                        className='ticket-nav-links-mobile text-decoration-none'
+                                        onClick={closeMobileMenu}
+                                    >
+                                        Sign Up
+                                    </Link>
+                                </li>
+                                <li>
+                                    <Link
+                                        to='/sign-in'
+                                        className='ticket-nav-links-mobile text-decoration-none'
+                                        onClick={closeMobileMenu}
+                                    >
+                                        Sign In
+                                    </Link>
+                                </li>
+                            </div>
+                        }
                     </ul>
-                    {button && <Button buttonStyle='btn--outline'>SIGN UP</Button>}
-                    <span>&nbsp;&nbsp;</span>
-                    {button && <Button buttonStyle='btn--outline'>SIGN IN</Button>}
+                    {
+                        (button && !authService.getLoginToken()) && <div className='d-flex flex-row'>
+                            <Link to="sign-up">
+                                <Button buttonStyle='btn--outline'>SIGN UP</Button>
+                            </Link>
+                            <span>&nbsp;&nbsp;</span>
+                            <Link to="sign-in">
+                                <Button buttonStyle='btn--outline'>SIGN IN</Button>
+                            </Link>
+                        </div>
+                    }
+
+                    {
+                        (button && authService.getLoginToken()) && <div className='d-flex flex-row'>
+                            <Link to="account">
+                                <Button buttonStyle='btn--outline'>ACCOUNT</Button>
+                            </Link>
+                            <span>&nbsp;&nbsp;</span>
+                            <Button buttonStyle='btn--outline' onClick={handleLogout}>LOG OUT</Button>
+                        </div>
+                    }
                 </div>
             </nav>
         </>

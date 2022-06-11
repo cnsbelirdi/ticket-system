@@ -1,15 +1,52 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import './SignUp.css';
 import { Button } from '../components/Button'
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import {Services} from '../api/Services';
+import { Auth } from '../api/Auth';
+import { useAuth } from '../contexts/AuthContext';
+
+
+const services = new Services();
+const authService = new Auth();
 
 export default function SignIn() {
+
+    const [auth, setAuth] = useAuth();
+    const navigate = useNavigate();
+
+    async function handleLogin(e){
+        e.preventDefault();
+        const username = e.target.username?.value;
+        const password = e.target.password?.value;
+
+        if(username && password){
+            await authService.login(username, password)
+                    .then(res => {
+                        setAuth({
+                            role: res.entity.data.role,
+                            username: res.entity.data.username,
+                            token : res.entity.data.token
+                        });
+
+                        console.log("data", res);
+                    }).catch(err => console.log(err));         
+        }
+    }
+
+
+    useEffect(()=> {
+        if(authService.getLoginToken()){
+            navigate("/", { replace: true });
+        }
+    }, [authService.getLoginToken()]);
+
     return (
         <div className="page-wrapper p-t-80 min-height-65">
             <div className="wrapper wrapper--w680">
                 <div className="card card-4">
                     <div className="card-body">
-                        <form method="POST">
+                        <form method="POST" onSubmit={handleLogin}>
                             <div className="row row-space">
                                 <div className="col">
                                     <div className="input-group">
@@ -41,7 +78,7 @@ export default function SignIn() {
                                     SIGN IN
                                 </Button>
                             </div>
-                            <div class="notmember">
+                            <div className="notmember">
                                 Not a member?
                                 <Link
                                     to='/sign-up'

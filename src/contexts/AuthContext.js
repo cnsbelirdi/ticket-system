@@ -1,5 +1,4 @@
 import React, { useContext, createContext, useState } from "react";
-import { Exception } from "sass";
 
 const AuthContext = createContext(undefined);
 
@@ -8,6 +7,7 @@ const AuthProvider = ({ children }) => {
   const [user, setUser] = useState({
     username: '',
     role: '',
+    token: '',
   });
 
 
@@ -21,7 +21,7 @@ const AuthProvider = ({ children }) => {
 export function useAuth() {
   const context = useContext(AuthContext);
 
-  if (context === undefined) throw new Exception("AuthContext cannot be used outside of AuthProvider!");
+  if (context === undefined) throw "AuthContext cannot be used outside of AuthProvider!";
 
   return context;
 }
