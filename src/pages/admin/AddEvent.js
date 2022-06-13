@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { cities, type_list } from "../../utils/EventUtils";
 import { useFormik } from "formik";
 import * as Yup from 'yup';
-import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
+import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
 import storage from '../../firebase';
 import { Services } from "../../api/Services";
 import { useNavigate } from "react-router-dom";
@@ -78,15 +78,14 @@ export default function AddEvent() {
             if (imageUrl) {
               await services.addImageToEvent({ eventId: res.entity.data.id, imageUrl: imageUrl })
                 .then(res => {
-                  if (res.entity.success) {
-                    navigate('/event/' + res.entity.data.id);
-                  }
                 })
                 .catch(err => {
                   console.log(err);
                   setErrorMessage(err.entity?.data);
                 });
             }
+
+            navigate('/event/' + res.entity.data.id);
           }
         })
         .catch(err => {
@@ -105,17 +104,20 @@ export default function AddEvent() {
     let downloadUrl = "";
 
     if (file) {
-      const suffix = file.value.split('.')[1];
+      console.log("file", file);
+      const suffix = "jpeg";// file.split('.')[1];
 
-      const storageRef = ref(storage, `event\\${eventId}.${suffix}`);
-      const uploadTask = uploadBytesResumable(storageRef, file);
-
-      await uploadTask.then(async res => {
-        await getDownloadURL(uploadTask.snapshot.ref).then((url) => {
-          downloadUrl = url;
+      const storageRef = ref(storage, `event-${eventId}.${suffix}`);
+      const uploadTask = await uploadBytes(storageRef, file, { contentType: 'image/jpeg' })
+        .then(async snapshot => {
+          await getDownloadURL(snapshot.ref).then(url => {
+            downloadUrl = url;
+          })
+        })
+        .catch(err => {
+          console.log(err);
         });
-      })
-        .catch(err => console.log(err))
+
 
     }
 

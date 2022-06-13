@@ -1,22 +1,29 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
+import moment from "moment";
 
-export default function Event({page,event}){
-    return(
-        <div className="card mb-4" style={{maxWidth:800}}>
+
+export default function Event({ page, event }) {
+
+    const navigate = useNavigate();
+
+    return (
+        <div className="card mb-4" style={{ maxWidth: 800 }}>
             <div className="row no-gutters">
                 <div className="col-sm">
-                    <img src={event.image} alt="Deep Purple" className="event-img rounded-0"/>
+                    <img src={event.image ?? "/images/no-image.jpg"} alt="Deep Purple" className="event-img rounded-0" />
                 </div>
                 <div className="col-sm">
                     <div className="card-body border-right-dashed mt-2 mb-2">
                         <h5 className="card-title">{event.eventName}</h5>
                         <p className="card-text text-pink">
                             <i className="far fa-calendar-alt mr-1"></i>
-                            {event.date.slice(0,event.date.indexOf("'")).replaceAll('-','/')}
+                            {moment(event.date).format("HH:MM DD/MM/YYYY")}
+                            {/* {event.date} */}
                         </p>
                         <p className="card-text text-orange">
                             <i className="far fa-clock mr-1"></i>
-                            {event.date.slice(event.date.lastIndexOf("'")+1,event.date.length-3).replaceAll('-',':')}
+                            {event.dayOfDate}
                         </p>
                         <p className="card-text text-secondary">
                             <i className="fas fa-map-marker-alt mr-1"></i>
@@ -32,10 +39,10 @@ export default function Event({page,event}){
                 </div>
                 <div className="col-sm">
                     <div className="card-body">
-                        <button type="button" className="btn bg-orange mt-5">Show Details</button>
+                        <button type="button" onClick={(e) => navigate('/event/' + event.id)} className="btn bg-orange mt-5">Show Details</button>
                         {
-                            page !== "Main" ? 
-                            <button type="button" className="btn btn-cancel mt-2 ml-4">Cancel</button>:""
+                            page !== "Main" ?
+                                <button type="button" className="btn btn-cancel mt-2 ml-4">Cancel</button> : ""
                         }
                     </div>
                 </div>

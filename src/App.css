@@ -83,3 +83,7 @@
     height: 20px;
     font-style: italic;
 }
+
+.seat-picker {
+    width: 100% !important;
+}
