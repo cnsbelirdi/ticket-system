@@ -1,12 +1,34 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Event from '../../components/Event';
 import { cities, events } from "../../utils/EventUtils";
-
+import { Services } from '../../api/Services';
 import mockEvents from './mockData';
 
+
+const services = new Services();
 export default function ShowEvent() {
+    const [eventList, setEventList] = useState([]);
     const eventTypes = events;
     const cityList = cities;
+
+
+    useEffect(() => {
+        async function getEvents() {
+            await services.getEvents()
+                .then((res) => {
+                    if (res.ok && res.entity.success) {
+                        console.log(res);
+                        setEventList(res.entity.data);
+                    }
+                })
+                .catch((err) => {
+                    console.log(err);
+                })
+        }
+
+        getEvents();
+    }, []);
+
     return (
         <div className="bg-admin-grey min-height-65">
             <div className="container d-flex justify-content-center">
@@ -49,7 +71,7 @@ export default function ShowEvent() {
                         </div>
                     </div>
                     {
-                        mockEvents.data.map(e => {
+                        eventList.map(e => {
                             return (
                                 <Event page={"Show"} event={e} />
                             );

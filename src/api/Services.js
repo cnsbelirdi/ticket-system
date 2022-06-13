@@ -1,4 +1,4 @@
-import { post } from "./Ajax";
+import { get, post } from "./Ajax";
 
 export function Services() {
     var that = this;
@@ -19,6 +19,48 @@ export function Services() {
             return await post({
                 url: 'authentication/sign-up',
                 body: userForm
+            })
+                .then(resolve)
+                .catch(reject);
+        });
+    }
+
+    this.addEvent = (eventForm) => {
+        return new Promise(async (resolve, reject) => {
+            return await post({
+                url: 'event',
+                body: eventForm
+            })
+                .then(resolve)
+                .catch(reject);
+        });
+    }
+
+    this.addImageToEvent = (imageBody) => {
+        return new Promise(async (resolve, reject) => {
+            return await post({
+                url: `event/image`,
+                body: imageBody
+            })
+                .then(resolve)
+                .catch(reject);
+        });
+    }
+
+    this.getEvent = (eventId) => {
+        return new Promise(async (resolve, reject) => {
+            return await get({
+                url: 'event/' + eventId,
+            })
+                .then(resolve)
+                .catch(reject);
+        });
+    }
+
+    this.getEvents = () => {
+        return new Promise(async (resolve, reject) => {
+            return await get({
+                url: 'event/all',
             })
                 .then(resolve)
                 .catch(reject);

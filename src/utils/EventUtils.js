@@ -6,15 +6,15 @@ export const cities = ["ISTANBUL",
 
 export const type_list = [
     {
-        name: "Music",
+        name: "MUSIC",
         substypes: ["Pop", "Hiphop", "Rock", "Funk", "Folk", "Jazz", "Blues", "Classical", "Electronic"]
     },
     {
-        name: "Cinema",
+        name: "CINEMA",
         substypes: ["Action", "Animation", "Comedy", "Drama", "Horror", "Mystery", "Romance", "Thriller"]
     },
     {
-        name: "Theater",
+        name: "THEATER",
         substypes: ["Child", "Adult"]
     }
 ];

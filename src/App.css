@@ -59,19 +59,27 @@
     font-size: 100px;
 }
 
-.text-orange{
-    color:#ff7143;
+.text-orange {
+    color: #ff7143;
 }
 
-.text-pink{
-    color:#ea1e63;
+.text-pink {
+    color: #ea1e63;
 }
 
-.bg-orange{
+.bg-orange {
     background-color: #ff7143;
-    transition:0.5s;
+    transition: 0.5s;
 }
 
-.bg-orange:hover{
-    color:#fff;
+.bg-orange:hover {
+    color: #fff;
+}
+
+.formik-validation {
+    font-size: small;
+    padding-left: 5px;
+    color: red;
+    height: 20px;
+    font-style: italic;
 }
