@@ -11,23 +11,79 @@ export default function ShowEvent() {
     const eventTypes = events;
     const cityList = cities;
 
+    async function getEvents() {
+        await services.getEvents()
+            .then((res) => {
+                if (res.ok && res.entity.success) {
+                    console.log(res);
+                    setEventList(res.entity.data);
+                }
+            })
+            .catch((err) => {
+                console.log(err);
+            })
+    }
 
     useEffect(() => {
-        async function getEvents() {
-            await services.getEvents()
-                .then((res) => {
+        getEvents();
+    }, []);
+
+    async function getEventsByType(e) {
+        const eventType = e.target.value;
+        if (eventType) {
+            await services.getEventsType(eventType)
+                .then(res => {
                     if (res.ok && res.entity.success) {
                         console.log(res);
                         setEventList(res.entity.data);
                     }
                 })
-                .catch((err) => {
+                .catch(err => {
                     console.log(err);
-                })
+                });
         }
+        else {
+            await getEvents();
+        }
+    }
 
-        getEvents();
-    }, []);
+    async function getEventsByPlace(e) {
+        const place = e.target.value;
+        if (e.target.value) {
+            await services.getEventsByPlace(place)
+                .then(res => {
+                    if (res.ok && res.entity.success) {
+                        console.log(res);
+                        setEventList(res.entity.data);
+                    }
+                })
+                .catch(err => {
+                    console.log(err);
+                });
+        }
+        else {
+            await getEvents();
+        }
+    }
+
+    async function getEventsByDate(e) {
+        const date = e.target.value;
+        if (date) {
+            await services.getEventsByDate(date)
+                .then(res => {
+                    if (res.ok && res.entity.success) {
+                        console.log(res);
+                        setEventList(res.entity.data);
+                    }
+                })
+                .catch(err => {
+                    console.log(err);
+                });
+        }
+        else {
+            await getEvents();
+        }
+    }
 
     return (
         <div className="bg-admin-grey min-height-65">
@@ -40,8 +96,8 @@ export default function ShowEvent() {
                         <div className="col">
                             <div className="form-group">
                                 <label htmlFor="event-type">Event Type</label>
-                                <select className="form-control text-uppercase" name="event-type" id="event-type" required>
-                                    <option value="default">Select..</option>
+                                <select className="form-control text-uppercase" onChange={getEventsByType} name="event-type" id="event-type" required>
+                                    <option value="">Select..</option>
                                     {eventTypes.map(type => {
                                         return (
                                             <option value={type}>{type}</option>
@@ -53,8 +109,8 @@ export default function ShowEvent() {
                         <div className="col">
                             <div className="form-group">
                                 <label htmlFor="event-city">City</label>
-                                <select className="form-control" id="event-city" name="event-city" required>
-                                    <option value="default">Select..</option>
+                                <select className="form-control" onChange={getEventsByPlace} id="event-city" name="event-city" required>
+                                    <option value="">Select..</option>
                                     {cityList.map(city => {
                                         return (
                                             <option value={city}>{city}</option>
@@ -66,7 +122,7 @@ export default function ShowEvent() {
                         <div className="col">
                             <div className="form-group">
                                 <label htmlFor="event-date">Date</label>
-                                <input type="date" className="form-control" id="event-date" name="event-date" />
+                                <input type="date" className="form-control" onChange={getEventsByDate} id="event-date" name="event-date" />
                             </div>
                         </div>
                     </div>

@@ -108,4 +108,64 @@ export function Services() {
                 .catch(reject);
         });
     }
+
+    this.getEventsByPlace = (place) => {
+        return new Promise(async (resolve, reject) => {
+            return await get({
+                url: 'event/place/' + place,
+            })
+                .then(resolve)
+                .catch(reject);
+        });
+    }
+
+    this.getEventsByDate = (date) => {
+        return new Promise(async (resolve, reject) => {
+            return await get({
+                url: 'event/date/' + date,
+            })
+                .then(resolve)
+                .catch(reject);
+        });
+    }
+
+    this.getTicketsByUser = () => {
+        return new Promise(async (resolve, reject) => {
+            return await get({
+                url: 'ticket/by-user-id',
+            })
+                .then(resolve)
+                .catch(reject);
+        });
+    }
+
+    this.cancelTicket = (ticketId) => {
+        return new Promise(async (resolve, reject) => {
+            return await put({
+                url: 'ticket/cancel-ticket/' + ticketId,
+            })
+                .then(resolve)
+                .catch(reject);
+        });
+    }
+
+    this.cancelEvent = (eventId) => {
+        return new Promise(async (resolve, reject) => {
+            return await put({
+                url: 'event/cancel-event/' + eventId,
+            })
+                .then(resolve)
+                .catch(reject);
+        });
+    }
+
+    this.getNotificationByUserId = () => {
+        return new Promise(async (resolve, reject) => {
+            return await get({
+                url: 'notification/by-current-user',
+            })
+                .then(resolve)
+                .catch(reject);
+        });
+    }
 }

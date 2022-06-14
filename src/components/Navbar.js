@@ -33,13 +33,13 @@ function Navbar() {
         setAuth({
             username: '',
             role: '',
-            token :''
+            token: ''
         });
 
         authService.removeAuthorizationCookie();
 
         closeMobileMenu();
-    } 
+    }
 
     window.addEventListener('resize', showButton);
 
@@ -80,14 +80,14 @@ function Navbar() {
                         </li>
                         <li className='ticket-nav-item'>
                             <Link
-                                to='/stage'
+                                to='/theater'
                                 className='ticket-nav-links text-decoration-none'
                                 onClick={closeMobileMenu}
                             >
                                 Theater
                             </Link>
                         </li>
-                        <li className='ticket-nav-item'>
+                        {/* <li className='ticket-nav-item'>
                             <Link
                                 to='/others'
                                 className='ticket-nav-links text-decoration-none'
@@ -95,7 +95,7 @@ function Navbar() {
                             >
                                 Others
                             </Link>
-                        </li>
+                        </li> */}
 
                         {
                             authService.getLoginToken() && <div>
@@ -117,8 +117,17 @@ function Navbar() {
                                         Log out
                                     </Link>
                                 </li>
+                                <li>
+                                    <Link
+                                        to='/notification'
+                                        className='ticket-nav-links-mobile text-decoration-none'
+                                        onClick={closeMobileMenu}
+                                    >
+                                        <i className='fas fa-bell'></i>
+                                    </Link>
+                                </li>
                             </div>
-                            
+
                         }
                         {
                             !authService.getLoginToken() && <div>
@@ -161,7 +170,23 @@ function Navbar() {
                                 <Button buttonStyle='btn--outline'>ACCOUNT</Button>
                             </Link>
                             <span>&nbsp;&nbsp;</span>
-                            <Button buttonStyle='btn--outline' onClick={handleLogout}>LOG OUT</Button>
+                            <Button buttonStyle='btn--outline' onClick={handleLogout}>LOGOUT</Button>
+                            <span>&nbsp;&nbsp;</span>
+                            <Link
+                                to='notification'>
+                                <Button buttonStyle='btn--outline'>
+                                    <i className='fas fa-bell'></i>
+                                </Button>
+                            </Link>
+
+                            {
+                                auth.role === "ADMIN" && <Link
+                                    to='admin'>
+                                    <Button buttonStyle='btn--outline'>
+                                        ADMIN
+                                    </Button>
+                                </Link>
+                            }
                         </div>
                     }
                 </div>

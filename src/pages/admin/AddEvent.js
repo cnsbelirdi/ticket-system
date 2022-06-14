@@ -17,6 +17,7 @@ export default function AddEvent() {
   const [percent, setPercent] = useState(0);
   const [errorMessage, setErrorMessage] = useState('');
   const navigate = useNavigate();
+  const [error, setError] = useState('');
 
   const cityList = cities;
   const typeList = type_list;
@@ -59,6 +60,8 @@ export default function AddEvent() {
         .required('Place information is required'),
       date: Yup.string()
         .required('Date information is required'),
+      image: Yup.string()
+        .required('Image is required')
     }),
     onSubmit: async values => {
       await services.addEvent({
@@ -70,20 +73,21 @@ export default function AddEvent() {
         unitPrice: values.unitPrice,
         place: values.place,
         date: values.date,
-        hasSeatPlan: values.hasSeatPlan
+        hasSeatPlan: values.hasSeatPlan,
+        image: values.image
       })
         .then(async res => {
           if (res.ok) {
-            const imageUrl = await saveImage(res.entity.data.id);
-            if (imageUrl) {
-              await services.addImageToEvent({ eventId: res.entity.data.id, imageUrl: imageUrl })
-                .then(res => {
-                })
-                .catch(err => {
-                  console.log(err);
-                  setErrorMessage(err.entity?.data);
-                });
-            }
+            // const imageUrl = await saveImage(res.entity.data.id);
+            // if (imageUrl) {
+            //   await services.addImageToEvent({ eventId: res.entity.data.id, imageUrl: imageUrl })
+            //     .then(res => {
+            //     })
+            //     .catch(err => {
+            //       console.log(err);
+            //       setErrorMessage(err.entity?.data);
+            //     });
+            // }
 
             navigate('/event/' + res.entity.data.id);
           }
@@ -96,6 +100,12 @@ export default function AddEvent() {
 
   useEffect(() => {
     if (formik.errors) {
+      setError("Please fill all fields, except image");
+    }
+  }, [formik.errors]);
+
+  useEffect(() => {
+    if (formik.errors) {
       console.log(formik.errors);
     }
   }, [formik.errors])
@@ -105,10 +115,35 @@ export default function AddEvent() {
 
     if (file) {
       console.log("file", file);
-      const suffix = "jpeg";// file.split('.')[1];
+      const suffix = file.split('.')[1];
 
-      const storageRef = ref(storage, `event-${eventId}.${suffix}`);
-      const uploadTask = await uploadBytes(storageRef, file, { contentType: 'image/jpeg' })
+      const storageRef = await ref(storage, `event-${eventId}.${suffix}`);
+
+      // uploadTask.on(
+      //   "state_changed",
+      //   snapshot => { },
+      //   error => console.log(error),
+      //   async () => {
+      //     await storage
+      //       .ref("images")
+      //       .child(`event-${eventId}.${suffix}`)
+      //       .getDownloadURL()
+      //       .then(url => {
+      //         downloadUrl = url
+      //       })
+      //   }
+      // )
+      let blobFile;
+
+      await fetch(file.name)
+        .then(response => {
+          return response.blob();
+        })
+        .then(blob => {
+          blobFile = blob;
+        })
+
+      const uploadTask = await uploadBytes(storageRef, blobFile, { contentType: 'image/' + suffix })
         .then(async snapshot => {
           await getDownloadURL(snapshot.ref).then(url => {
             downloadUrl = url;
@@ -117,8 +152,6 @@ export default function AddEvent() {
         .catch(err => {
           console.log(err);
         });
-
-
     }
 
     return downloadUrl;
@@ -151,6 +184,7 @@ export default function AddEvent() {
                 <label htmlFor="event-subtype">Event Subtype</label>
                 <select className="form-control text-uppercase"
                   name="event-subtype" id="event-subtype" {...formik.getFieldProps('subType')} >
+                  <option value="default" disabled>Select..</option>
                   {subType.map((sub, key) => {
                     return (
                       <option key={key} value={sub}>{sub}</option>
@@ -171,12 +205,10 @@ export default function AddEvent() {
             <div className="col">
               <div className="form-group">
                 <label>Event Image</label>
-                <div className="input-group mb-3">
-                  <div className="custom-file">
-                    <input type="file" className="custom-file-input" id="event-image"
-                      name="event-image" onChange={(e) => setFile(e.target.value)} />
-                    <label className="custom-file-label" htmlFor="event-image">Choose file</label>
-                  </div>
+                <div className="form-group">
+                  <input type="text" className="form-control" id="event-image"
+                    name="event-image" {...formik.getFieldProps('image')} />
+                  <label htmlFor="event-image"></label>
                 </div>
               </div>
             </div>
@@ -217,8 +249,17 @@ export default function AddEvent() {
             <div className="col">
               <div className="form-group">
                 <label htmlFor="event-capacity">Capacity</label>
-                <input type="number" className="form-control" id="event-capacity"
-                  name="event-capacity" min="1" {...formik.getFieldProps('capacity')} />
+
+                <select className="form-control" id="event-capacity"
+                  name="event-capacity" {...formik.getFieldProps('capacity')} required>
+                  <option value="default">Select..</option>
+                  <option value={50}>50</option>
+                  <option value={100}>100</option>
+                  <option value={150}>150</option>
+                  <option value={200}>200</option>
+                </select>
+                {/* <input type="number" className="form-control" id="event-capacity"
+                  name="event-capacity" min="1" {...formik.getFieldProps('capacity')} /> */}
               </div>
             </div>
             <div className="col">
@@ -240,6 +281,11 @@ export default function AddEvent() {
               </div>
             </div>
           </div>
+          {
+            error && <div style={{ color: "red", fontStyle: "italic", fontSize: "14px" }}>
+              {error}
+            </div>
+          }
           <div className="row dflex justify-content-end">
             <div className="col-2 mb-5">
               <button type="submit" className="btn bg-orange pl-4 pr-4 mb-5 ">ADD</button>

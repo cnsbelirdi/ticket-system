@@ -1,11 +1,26 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import moment from "moment";
+import { Services } from '../api/Services';
 
+
+const services = new Services();
 
 export default function Event({ page, event }) {
 
     const navigate = useNavigate();
+
+    const cancelEvent = async (eventId) => {
+        await services.cancelEvent(eventId)
+            .then(res => {
+                console.log(res);
+                if (res.success && res.entity.success) {
+                    // window.location.href = "/event"+
+
+                }
+            })
+            .catch(err => console.log(err));
+    }
 
     return (
         <div className="card mb-4" style={{ maxWidth: 800 }}>
@@ -29,6 +44,11 @@ export default function Event({ page, event }) {
                             <i className="fas fa-map-marker-alt mr-1"></i>
                             {event.place}
                         </p>
+                        {
+                            event.cancelled && <p className='card-text text-secondary'>
+                                CANCELLED
+                            </p>
+                        }
                     </div>
                 </div>
                 <div className="col-sm">
@@ -42,7 +62,7 @@ export default function Event({ page, event }) {
                         <button type="button" onClick={(e) => navigate('/event/' + event.id)} className="btn bg-orange mt-5">Show Details</button>
                         {
                             page !== "Main" ?
-                                <button type="button" className="btn btn-cancel mt-2 ml-4">Cancel</button> : ""
+                                <button type="button" className="btn btn-cancel mt-2 ml-4" onClick={async (e) => await cancelEvent(event.id)}>Cancel</button> : ""
                         }
                     </div>
                 </div>

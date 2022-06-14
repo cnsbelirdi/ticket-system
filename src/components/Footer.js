@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 
 function Footer() {
   return (
-    <div className='footer-container'>
+    <div className='footer-container mt-auto'>
       <div className='footer-links'>
         <div className='footer-link-wrapper'>
           <section className='footer-subscription'>

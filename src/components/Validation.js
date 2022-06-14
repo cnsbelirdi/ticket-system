@@ -1,7 +1,10 @@
 const Validation = ({ touched, error }) => {
   return (
-    <div className="formik-validation" hidden={!touched && error}>
-      {error}
+    <div>
+      {!touched && error && <div className="formik-validation">
+        {error}
+      </div>
+      }
     </div>
   );
 }
