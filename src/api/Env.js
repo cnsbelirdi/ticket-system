@@ -1,6 +1,6 @@
 /* eslint-disable */
 const dev = "http://localhost:8080/api";
-const prod = "";
+const prod = "https://ticket-system-2.herokuapp.com/api";
 
 const env = dev;
 
