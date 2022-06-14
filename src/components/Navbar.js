@@ -54,7 +54,7 @@ function Navbar() {
                     <div className='ticket-menu-icon' onClick={handleClick}>
                         <i className={click ? 'fas fa-times' : 'fas fa-bars'} />
                     </div>
-                    <ul className={click ? 'ticket-nav-menu active' : 'ticket-nav-menu'}>
+                    <ul className={click ? 'ticket-nav-menu active' : 'ticket-nav-menu'} style={{marginTop:0}}>
                         <li className='ticket-nav-item'>
                             <Link to='/' className='ticket-nav-links text-decoration-none' onClick={closeMobileMenu}>
                                 Home

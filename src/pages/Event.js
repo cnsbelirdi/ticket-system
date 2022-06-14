@@ -134,7 +134,7 @@ function Event() {
     setSeatPlan(prev => seatPlans.filter(s => s.id !== id))
   }
 
-
+  
 
   return <>
     {
@@ -142,8 +142,8 @@ function Event() {
         <div className='container'>
           <nav aria-label="breadcrumb">
             <ol className="breadcrumb bg-transparent">
-              <li className="breadcrumb-item active">{event.eventType}</li>
-              <li className="breadcrumb-item" aria-current="page">{event.eventSubType}</li>
+              <li className="breadcrumb-item active">{event.type}</li>
+              <li className="breadcrumb-item text-uppercase" aria-current="page">{event.subType}</li>
             </ol>
           </nav>
           <div className="card">
